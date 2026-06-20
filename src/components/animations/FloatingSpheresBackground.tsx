@@ -84,7 +84,10 @@ export default function FloatingSpheresBackground({ isReversing = false }: { isR
   });
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     setIsSmallScreen(window.innerWidth <= 1300);
     const handleResize = () => setIsSmallScreen(window.innerWidth <= 1300);
     window.addEventListener("resize", handleResize);
@@ -102,6 +105,8 @@ export default function FloatingSpheresBackground({ isReversing = false }: { isR
   const scale = useTransform(smoothScroll, [0, 800, 1000], [1, 20, 150]);
   const opacity = useTransform(smoothScroll, [0, 1000], [1, 1]);
   const solidOpacity = useTransform(smoothScroll, [700, 1000], [0, 1]);
+
+  if (!mounted) return null; // Prevent hydration mismatch on window.innerWidth
 
   return (
     <>

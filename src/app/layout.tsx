@@ -27,6 +27,9 @@ const codecPro = localFont({
 export const metadata: Metadata = {
   title: "LADDIFY | Scale It, Laddify It.",
   description: "Scale Your Brand, Laddify It. Digital agency untuk UMKM, F&B, dan Retail.",
+  icons: {
+    icon: "/Logo.webp",
+  },
 };
 
 export default function RootLayout({
