@@ -1,14 +1,21 @@
 import HeroSection from "@/components/marketing/HeroSection";
-import FloatingSpheresBackground from "@/components/animations/FloatingSpheresBackground";
+import OurValue from "@/components/marketing/OurValue";
+import PainPoints from "@/components/marketing/PainPoints";
+import BentoGridServices from "@/components/marketing/BentoGridServices";
+import PricingSection from "@/components/marketing/PricingSection";
+import FAQSection from "@/components/marketing/FAQSection";
+import ClosingHook from "@/components/marketing/ClosingHook";
 
-export default async function Home({ searchParams }: { searchParams: Promise<{ from?: string }> }) {
-  const params = await searchParams;
-  const isReversing = params.from === "explore";
-
+export default function Home() {
   return (
-    <main className="h-screen w-full overflow-hidden relative">
-      <FloatingSpheresBackground isReversing={isReversing} />
+    <main className="relative z-10 min-h-screen bg-[#FAFAFC]">
       <HeroSection />
+      <OurValue />
+      <PainPoints />
+      <BentoGridServices />
+      <PricingSection />
+      <FAQSection />
+      <ClosingHook />
     </main>
   );
 }

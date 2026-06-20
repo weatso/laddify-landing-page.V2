@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const sphereBaseClass =
@@ -8,16 +7,9 @@ const sphereBaseClass =
 const sphereClass = `${sphereBaseClass} absolute`;
 
 export default function GlobalSpheresWrapper() {
-  const pathname = usePathname();
-
-  // Hide on Home and Explore because they have their own custom sphere choreography.
-  if (pathname === "/" || pathname === "/explore") {
-    return null;
-  }
-
   return (
     <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         animate={{ rotate: 360 }}
         transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
